@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 import com.testhibernate5.config.HibernateAnnotationUtil;
 import com.testhibernate5.model.Cart;
+import com.testhibernate5.model.Employee;
 import com.testhibernate5.model.Items;
 
 public class HibernateOneToManyAnnotationMain {
@@ -43,13 +44,31 @@ public class HibernateOneToManyAnnotationMain {
 				session.save(cart);
 				session.save(item1);
 				session.save(item2);
-				
+								
 				// Commit transaction
 				tx.commit();
 				
 				System.out.println("Cart ID " + cart.getId());
 				System.out.println("item1 ID " + item1.getId() + " Foreign Key Cart ID " + item1.getCart().getId());
 				System.out.println("item1 ID " + item2.getId() + " Foreign Key Cart ID " + item2.getCart().getId());
+			
+				// Start transaction
+				session = sessionFactory.getCurrentSession();
+				tx = session.beginTransaction();
+				
+				Employee manager1 = new Employee("Chuck", "Norris");
+				
+				Employee employee1 = new Employee("Sergey", "Brin");
+				Employee employee2 = new Employee("Larry", "Page");
+				
+				employee1.setManager(manager1);
+				employee2.setManager(manager1);
+				
+				session.save(employee1);
+				session.save(employee2);
+				
+				// Commit transaction
+				tx.commit();
 			} catch (Exception e) {
 				System.out.println("Exception " + e.getMessage());
 				e.printStackTrace();

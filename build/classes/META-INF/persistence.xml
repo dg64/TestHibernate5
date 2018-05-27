@@ -4,6 +4,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>com.testhibernate5.model.Cart</class>
 		<class>com.testhibernate5.model.Items</class>
+		<class>com.testhibernate5.model.Employee</class>
 		<properties>
 			<property name="hibernate.connection.driver_class" value="org.mariadb.jdbc.Driver"/>
 			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/TestHibernate5"/>

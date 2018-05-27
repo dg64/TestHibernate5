@@ -13,6 +13,7 @@
     <property name="current_session_context_class">thread</property>
     <mapping class="com.testhibernate5.model.Cart" />
     <mapping class="com.testhibernate5.model.Items" />
+    <mapping class="com.testhibernate5.model.Employee" />
 
   </session-factory>
 </hibernate-configuration>
